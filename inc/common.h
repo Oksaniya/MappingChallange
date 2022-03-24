@@ -8,7 +8,7 @@
 #include <string.h>
 #include <stdbool.h>
 
-#define POSITION 25
+#define POSITION 15
 #define VELOCITY 78
 #define TIMESTAMP_INTERVAL_POSITION 25
 #define TIMESTAMP_INTERVAL_POS_DEVIATION 2

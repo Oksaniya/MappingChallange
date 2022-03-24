@@ -31,6 +31,7 @@ void id_frame(char **line, t_buff *buff, FILE *fp2)
         else if (atoi((const char *)values[1]) != n)
         {
             n = atoi((const char *)values[1]);
+            n++;
             buff->n = n;
             buff->FrameDropCnt15++;
 
@@ -46,6 +47,7 @@ void id_frame(char **line, t_buff *buff, FILE *fp2)
         else if (atoi((const char *)values[1]) != i)
         {
             i = atoi((const char *)values[1]);
+            i++;
             buff->i = i;
             buff->FrameDropCnt78++;
         }
