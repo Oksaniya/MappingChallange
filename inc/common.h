@@ -38,7 +38,6 @@ typedef struct          s_buff
     bool                TimeoutOK;
     int                 FrameDropCnt15;
     int                 FrameDropCnt78;
-    char                *out_str;
 }                       t_buff;
 
 void argc_check(int argc);
@@ -53,7 +52,6 @@ void TimeoutOK_cnt(char **line, t_buff *buff);
 void ChecksumOK_calc(char **line, t_buff *buff);
 unsigned char complement_cnt(char **fragments);
 void vel_pos(char **line, t_buff *buff);
-//void write_out(char **line, FILE *fp2);
 void write_name(FILE *fp2);
 void write_pos_vel(t_buff *buff, FILE *fp2, char **line);
 void write_check_time(t_buff *buff, FILE *fp2);
