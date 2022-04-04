@@ -1,10 +1,11 @@
-#include "../inc/common.h"
+#include "common.h"
 
-void read_f(char **line, FILE *fp, t_buff *buff, FILE *fp2)
+void read_f(FILE *fp, t_buff *buff, FILE *fp2)
 {
 
-    size_t len = 0;
-    ssize_t read;
+    //char    buf[64];
+	char	*line;
+    ssize_t	read;
 
     read = 0;
     buff->i = 0;
@@ -15,23 +16,27 @@ void read_f(char **line, FILE *fp, t_buff *buff, FILE *fp2)
     buff->FrameDropCnt15 = 0;
     buff->FrameDropCnt78 = 0;
 
-    bzero(line, strlen((const char *)line));
-    read = getline(line, &len, fp);
-    name_col_check(line);
+  //  ft_bzero(line, strlen((const char *)line));
+    //read = getline(line, &len, fp);
+    line = ft_strnew(64);
+	line = fgets(line, 64, fp);
+    
+	name_col_check(&line);
     write_name(fp2);
 
-    while (read != -1) 
+    while (line) 
     {
-        read = getline(line, &len, fp);
-        if (read != -1)
+        //read = getline(line, &len, fp);
+		line = fgets(line, 64, fp);
+        if (line)
         {
-            id_frame(line, buff, fp2);
-            TimeoutOK_cnt(line, buff);
-            ChecksumOK_calc(line, buff);
-            vel_pos(line, buff);
-            write_pos_vel(buff, fp2, line);
+            id_frame(&line, buff, fp2);
+            TimeoutOK_cnt(&line, buff);
+            ChecksumOK_calc(&line, buff);
+            vel_pos(&line, buff);
+            write_pos_vel(buff, fp2, &line);
             write_check_time(buff,fp2);
-            write_framedrop(buff, fp2, line);
+            write_framedrop(buff, fp2, &line);
 
         }
     }
@@ -111,8 +116,11 @@ void write_framedrop(t_buff *buff, FILE *fp2, char **line)
     if (atoi(values[0]) == POSITION)
     {
         ret = fprintf(fp2, "%d", buff->FrameDropCnt15);
-        if (ret < 0) 
+        if (ret < 0)
+        {
+            printf("Moja programa wsralas tut");
             exit(1);
+        }
         fputs("\r\n", fp2);
     }
 

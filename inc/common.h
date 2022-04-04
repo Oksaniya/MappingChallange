@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
-#include <strings.h>
 #include <string.h>
 #include <stdbool.h>
 
@@ -43,9 +42,11 @@ typedef struct          s_buff
 void argc_check(int argc);
 void input_name_exe_check(char *argv);
 void output_name_exe_check(char *argv);
+void ft_bzero(void *ptr, size_t size);
 char **ft_strsplit(char const *s, char c);
+char *ft_strndup(const char *str, size_t n);
 char *ft_strnew(size_t size);
-void read_f(char **line, FILE *fp, t_buff *buff, FILE *fp2);
+void read_f(FILE *fp, t_buff *buff, FILE *fp2);
 void name_col_check(char **line);
 void id_frame(char **line, t_buff *buff, FILE *fp2);
 void TimeoutOK_cnt(char **line, t_buff *buff);

@@ -1,5 +1,4 @@
-#include "../inc/common.h"
-
+#include "common.h"
 
 void id_frame(char **line, t_buff *buff, FILE *fp2)
 {
@@ -124,7 +123,7 @@ void ChecksumOK_calc(char **line, t_buff *buff)
     }
     while (i < PAYLOAD_FRAGMENTS_COMPLEMENT)
     {
-        fragments[i] = strndup((const char *)values[3], 2);
+        fragments[i] = ft_strndup((const char *)values[3], 2);
         values[3] += 2;
         i++;
     }
@@ -192,10 +191,11 @@ void vel_pos(char **line, t_buff *buff)
 
     while (i < PAYLOAD_FRAGMENTS_POS_VEL)
     {
-        fr[i] = strndup((const char *)values[3], 4);
+        fr[i] = ft_strndup((const char *)values[3], 4);
         values[3] += 4;
         i++;
     }
+
     xpayload = (unsigned short)strtol(fr[0], NULL, 16);
     swapped = (xpayload>>8) | (xpayload<<8);
     fxp = (float)swapped;

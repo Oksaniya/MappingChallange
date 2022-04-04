@@ -1,4 +1,18 @@
-#include "../inc/common.h"
+#include "common.h"
+
+void ft_bzero(void *ptr, size_t size)
+{
+	size_t	iterator;
+	char	*p;
+	
+	p = (char *)ptr;
+	iterator = 0;
+	while (iterator < size)
+	{
+		p[iterator] = 0;
+        iterator++;
+	}
+}
 
 char *ft_strnew(size_t size)
 {
@@ -10,7 +24,7 @@ char *ft_strnew(size_t size)
         return NULL;
     }
 
-    bzero((void *)str, size);
+    ft_bzero((void *)str, size);
     return str;
 }
 
@@ -73,4 +87,21 @@ char **ft_strsplit(char const *s, char c)
     return res;
 }
 
-//int big_to_small_endian()
+char	*ft_strndup(const char *str, size_t n)
+{
+	size_t	i;
+	char	*dup;
+	size_t  len;
+
+	i = 0;
+	len = strlen(str);
+	if (!(dup = (char*)ft_strnew(((len > n) ? n : len) + 1)))
+		return (NULL);
+	while ((str[i] != '\0') && (i < n))
+	{
+		dup[i] = str[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}

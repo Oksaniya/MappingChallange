@@ -1,6 +1,4 @@
-#include "../inc/common.h"
-
-t_buff buff;
+#include "common.h"
 
 void argc_check(int argc)
 {

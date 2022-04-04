@@ -4,7 +4,7 @@ CC = gcc
 FLAG = -glldb -g3 -Wall -Wextra -Werror
 
 all: obj
-	$(CC) obj/main.o \
+	$(CC) $(FLAG) obj/main.o \
 	obj/log_decoder.o \
 	obj/validator.o \
 	obj/additional_fn.o \
