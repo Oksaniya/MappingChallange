@@ -166,14 +166,12 @@ void vel_pos(char **line, t_buff *buff)
     char **fr;
     unsigned short xpayload;
     unsigned short ypayload;
-    unsigned short swapped;
     float fxp;
     float fyp;
     int i;
 
     xpayload = 0;
     ypayload = 0;
-    swapped = 0;
     i = 0;
     fxp = 0,0;
     fyp = 0,0;
@@ -197,13 +195,10 @@ void vel_pos(char **line, t_buff *buff)
     }
 
     xpayload = (unsigned short)strtol(fr[0], NULL, 16);
-    swapped = (xpayload>>8) | (xpayload<<8);
-    fxp = (float)swapped;
+    fxp = (float)xpayload;
     
-    swapped = 0;
     ypayload = (unsigned short)strtol(fr[1], NULL, 16);
-    swapped = (ypayload>>8) | (ypayload<<8);
-    fyp = (float)swapped;
+    fyp = (float)ypayload;
 
     if ((atoi((const char *)values[0]) == POSITION))
     {

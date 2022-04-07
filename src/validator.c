@@ -132,7 +132,7 @@ void name_col_check(char **line)
 
     i = 0;
     c = 0;
-
+	
     names = ft_strsplit(*line, ',');
 
     while (names[c])
@@ -225,15 +225,17 @@ void name_col_check(char **line)
     i = 0;
     c = 0;
 
-    while (names[4][c] != '\0')
-    {
-        c++;
-    }
-    if (c != 10)
-    {
-        printf("\nThe 5'th column should have a name Checksum\n");
-        exit(1);
-    }
+	// while (names[4][c] != '\0')
+    // {
+		// printf("c = %d\t%c\t%u\n", c, names[4][c], names[4][c]);
+        // c++;
+    // }
+	// printf("names[4] len = %u\n", strlen(names[4]));
+    // if (c != 10)
+    // {
+        // printf("\nThe 5'th column should have a name Checksum\n");
+        // exit(1);
+    // }
     
     i = strncmp((const char *)names[4], Checksum, c);
     

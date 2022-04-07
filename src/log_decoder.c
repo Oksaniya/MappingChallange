@@ -44,7 +44,7 @@ void read_f(FILE *fp, t_buff *buff, FILE *fp2)
 
 void write_name(FILE *fp2)
 {
-    char str[] = "ID, FrameNb, Timestamp, PositionX, PositionY, VelocityX, VelocityY, ChecksumOK, TimeoutOK, FrameDrop\r\n";
+    char str[] = "ID,FrameNb,Timestamp,PositionX,PositionY,VelocityX,VelocityY,ChecksumOK,TimeoutOK,FrameDrop\n";
     fputs(str, fp2);
 }
 
@@ -121,7 +121,7 @@ void write_framedrop(t_buff *buff, FILE *fp2, char **line)
             printf("Moja programa wsralas tut");
             exit(1);
         }
-        fputs("\r\n", fp2);
+        fputs("\n", fp2);
     }
 
     else if (atoi(values[0]) == VELOCITY)
@@ -129,6 +129,6 @@ void write_framedrop(t_buff *buff, FILE *fp2, char **line)
         ret = fprintf(fp2, "%d", buff->FrameDropCnt78);
         if (ret < 0) 
             exit(1);
-        fputs("\r\n", fp2);
+        fputs("\n", fp2);
     }
 }
