@@ -1,4 +1,4 @@
-#include "common.h"
+#include "../inc/common.h"
 
 void ft_bzero(void *ptr, size_t size)
 {

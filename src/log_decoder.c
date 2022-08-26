@@ -1,4 +1,4 @@
-#include "common.h"
+#include "../inc/common.h"
 
 void read_f(FILE *fp, t_buff *buff, FILE *fp2)
 {
@@ -8,11 +8,10 @@ void read_f(FILE *fp, t_buff *buff, FILE *fp2)
     ssize_t	read;
 
     read = 0;
-    buff->i = 0;
-    buff->n = 0;
-    buff->t = 0;
-    buff->f = 0;
-    buff->h = 0;
+    buff->iterator_FrameDropCnt78 = 0;
+    buff->iterator_FrameDropCnt15 = 0;
+    buff->iterator_TimeoutOK_position = 0;
+    buff->iterator_TimeoutOK_velocity = 0;
     buff->FrameDropCnt15 = 0;
     buff->FrameDropCnt78 = 0;
 

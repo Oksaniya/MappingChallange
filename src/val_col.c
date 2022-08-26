@@ -1,4 +1,4 @@
-#include "common.h"
+#include "../inc/common.h"
 
 void id_frame(char **line, t_buff *buff, FILE *fp2)
 {
@@ -6,8 +6,8 @@ void id_frame(char **line, t_buff *buff, FILE *fp2)
     int i;
     int n;
 
-    n = buff->n;
-    i = buff->i;
+    n = buff->iterator_FrameDropCnt15;
+    i = buff->iterator_FrameDropCnt78;
 
     values = ft_strsplit(*line, '\n');
     values = ft_strsplit(*line, '\r');
@@ -25,13 +25,13 @@ void id_frame(char **line, t_buff *buff, FILE *fp2)
         if (atoi((const char *)values[1]) == n)
         {
             n++;
-            buff->n = n;
+            buff->iterator_FrameDropCnt15 = n;
         }
         else if (atoi((const char *)values[1]) != n)
         {
             n = atoi((const char *)values[1]);
             n++;
-            buff->n = n;
+            buff->iterator_FrameDropCnt15 = n;
             buff->FrameDropCnt15++;
 
         }
@@ -41,13 +41,13 @@ void id_frame(char **line, t_buff *buff, FILE *fp2)
         if (atoi((const char *)values[1]) == i)
         {
             i++;
-            buff->i = i;
+            buff->iterator_FrameDropCnt78 = i;
         }
         else if (atoi((const char *)values[1]) != i)
         {
             i = atoi((const char *)values[1]);
             i++;
-            buff->i = i;
+            buff->iterator_FrameDropCnt78 = i;
             buff->FrameDropCnt78++;
         }
     }
@@ -59,8 +59,8 @@ void TimeoutOK_cnt(char **line, t_buff *buff)
     int t;
     int f;
 
-    t = buff->t;
-    f = buff->f;
+    t = buff->iterator_TimeoutOK_position;
+    f = buff->iterator_TimeoutOK_velocity;
 
     values = ft_strsplit(*line, '\n');
     values = ft_strsplit(*line, '\r');
@@ -72,14 +72,14 @@ void TimeoutOK_cnt(char **line, t_buff *buff)
         (atoi((const char *)values[2]) <= (t + TIMESTAMP_INTERVAL_POS_DEVIATION)))
         {
             t = (t + TIMESTAMP_INTERVAL_POSITION);
-            buff->t = t;
+            buff->iterator_TimeoutOK_position = t;
             buff->TimeoutOK = 1;
         }
         else 
         {
             t = atoi((const char *)values[2]);
             t = (t + TIMESTAMP_INTERVAL_POSITION);
-            buff->t = t;
+            buff->iterator_TimeoutOK_position = t;
             buff->TimeoutOK = 0;
         }
     }
@@ -89,14 +89,14 @@ void TimeoutOK_cnt(char **line, t_buff *buff)
         (atoi((const char *)values[2]) <= (f + TIMESTAMP_INTERVAL_VEL_DEVIATION)))
         {
             f = (f + TIMESTAMP_INTERVAL_VELOCITY);
-            buff->f = f;
+            buff->iterator_TimeoutOK_velocity = f;
             buff->TimeoutOK = 1;
         }
         else 
         {
             f = atoi((const char *)values[2]);
             f = (f + TIMESTAMP_INTERVAL_VELOCITY);
-            buff->f = f;
+            buff->iterator_TimeoutOK_velocity = f;
             buff->TimeoutOK = 0;
         }
     }

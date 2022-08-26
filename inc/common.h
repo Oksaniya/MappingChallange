@@ -19,13 +19,11 @@
 
 typedef struct          s_buff
 {
-    int                 i;
-    int                 n;
-    int                 t;
-    int                 f;
-    int                 q;
+    int                 iterator_FrameDropCnt78;
+    int                 iterator_FrameDropCnt15;
+    int                 iterator_TimeoutOK_position;
+    int                 iterator_TimeoutOK_velocity;
     int                 a;
-    int                 h;
     int                 ID;
     int                 FrameNB;
     int                 Timestamp;
@@ -39,9 +37,9 @@ typedef struct          s_buff
     int                 FrameDropCnt78;
 }                       t_buff;
 
-void argc_check(int argc);
-void input_name_exe_check(char *argv);
-void output_name_exe_check(char *argv);
+void argc_check(const int argc);
+void input_name_exe_check(const char *argv);
+void output_name_exe_check(const char *argv);
 void ft_bzero(void *ptr, size_t size);
 char **ft_strsplit(char const *s, char c);
 char *ft_strndup(const char *str, size_t n);

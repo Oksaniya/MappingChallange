@@ -1,6 +1,6 @@
-#include "common.h"
+#include "../inc/common.h"
 
-void argc_check(int argc)
+void argc_check(const int argc)
 {
     if (argc != 3)
     {
@@ -9,7 +9,7 @@ void argc_check(int argc)
     }
 }
 
-void input_name_exe_check(char *argv)
+void input_name_exe_check(const char *argv)
 {
     int i;
     int c;
@@ -64,7 +64,7 @@ void input_name_exe_check(char *argv)
     }
 }
 
-void output_name_exe_check(char *argv)
+void output_name_exe_check(const char *argv)
 {
     int i;
     int c;
